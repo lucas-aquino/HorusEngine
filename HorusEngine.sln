@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "Sandbox\Sandbox.vcxproj", "{110CCBB1-38A1-4D67-B300-DE77707EB139}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HorusEngine", "HorusEngine\HorusEngine.vcxproj", "{0034A346-6579-4FE4-A4DC-DE81EF490D4A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0034A346-6579-4FE4-A4DC-DE81EF490D4A}.Debug|x64.ActiveCfg = Debug|x64
+		{0034A346-6579-4FE4-A4DC-DE81EF490D4A}.Debug|x64.Build.0 = Debug|x64
+		{0034A346-6579-4FE4-A4DC-DE81EF490D4A}.Debug|x86.ActiveCfg = Debug|x64
+		{0034A346-6579-4FE4-A4DC-DE81EF490D4A}.Release|x64.ActiveCfg = Release|x64
+		{0034A346-6579-4FE4-A4DC-DE81EF490D4A}.Release|x64.Build.0 = Release|x64
+		{0034A346-6579-4FE4-A4DC-DE81EF490D4A}.Release|x86.ActiveCfg = Release|x64
+		{110CCBB1-38A1-4D67-B300-DE77707EB139}.Debug|x64.ActiveCfg = Debug|x64
+		{110CCBB1-38A1-4D67-B300-DE77707EB139}.Debug|x64.Build.0 = Debug|x64
+		{110CCBB1-38A1-4D67-B300-DE77707EB139}.Debug|x86.ActiveCfg = Debug|x64
+		{110CCBB1-38A1-4D67-B300-DE77707EB139}.Release|x64.ActiveCfg = Release|x64
+		{110CCBB1-38A1-4D67-B300-DE77707EB139}.Release|x64.Build.0 = Release|x64
+		{110CCBB1-38A1-4D67-B300-DE77707EB139}.Release|x86.ActiveCfg = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BDDAB833-BCD5-48BD-876B-5DE2B8FC6EBD}
+	EndGlobalSection
+EndGlobal
