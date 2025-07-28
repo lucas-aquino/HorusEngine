@@ -3,7 +3,6 @@
 add_subdirectory(Core)
 add_subdirectory(Utils)
 
-# Descomentar cuando tengas estos directorios y sus CMakeLists.txt
 # add_subdirectory(Core/ECS)
 # add_subdirectory(Core/Input)
 # add_subdirectory(Core/Time)
