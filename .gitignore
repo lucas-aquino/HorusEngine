@@ -1,0 +1,116 @@
+# Archivos de compilación de CMake y Visual Studio
+###################################################
+# Directorio de salida de CMake (donde se generan los archivos de build)
+/out/
+
+# Caché de CMake (archivos intermedios y de configuración)
+# Generalmente dentro del directorio de build, pero algunos IDEs o configs pueden crearlos en otro sitio
+# Por ejemplo, si usas VS Code con la extensión CMake Tools, puede generar un .cmake/
+.cmake/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+
+# Archivos de la configuración de Visual Studio
+.vs/
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+*.suo
+*.opensdf
+*.sdf
+*.tlog
+*.ipch
+*.log
+*.obj
+*.o
+*.pdb
+*.ilk
+*.tlb
+*.lib
+*.dll
+*.exp
+*.exe
+*.manifest
+*.lastbuildstate
+*.tds
+*.bsc
+*.res
+*.pch
+*.pki
+*.ncb
+*.user
+*.config
+*.vssscc
+*.vspscc
+*.bak
+*.vcproj
+*.vgdb
+*.code-workspace
+
+# Archivos de recuperación y copia de seguridad de Visual Studio
+*.aps
+*.opt
+*.filters
+*.userprefs
+
+# Archivos de compilación específicos de vcpkg
+# El directorio vcpkg_installed contiene las librerías compiladas,
+# lo cual no debe ser versionado ya que se regenera.
+/vcpkg_installed/
+
+# Archivos de registro de vcpkg
+vcpkg-manifest.log
+
+# Archivos generados por Ninja (si usas Ninja como generador de CMake)
+.ninja_deps
+.ninja_log
+
+# Archivos de depuración y profiling
+*.gch
+*.gcno
+*.gcda
+*.gcov
+*.prof
+*.obj.res
+*.rc.res
+
+# Archivos específicos de sistemas operativos
+##############################################
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Editores de texto comunes (pueden generar archivos temporales)
+# Vim
+*.swp
+*.swo
+*.swn
+*.tmp
+
+# Emacs
+*~
+#*#
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# VS Code (excepto archivos de configuración importantes como settings.json o launch.json si son compartidos)
+.vscode/
+
+# Binarios de prueba o ejemplos (si no son parte del ejecutable principal)
+# Por ejemplo, si tus tests se generan en una carpeta 'bin/tests'
+# /bin/tests/
+
+# Archivos generados por herramientas de análisis de código o linters
+.clangd/
+.clang-tidy
+.cppcheck

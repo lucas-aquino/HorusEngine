@@ -1,0 +1,13 @@
+{
+  "name": "horus",
+  "version": "0.1.0",
+  "dependencies": [
+    "glfw3",
+    "glad",
+    "glm",
+    "stb",
+    "assimp",
+    "spdlog"
+  ]
+}
+
