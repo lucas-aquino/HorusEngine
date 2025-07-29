@@ -6,7 +6,7 @@
 namespace Horus
 {
 
-	Application* CreateHorusApplication();
+    Application* CreateHorusApplication();
 }
 
 

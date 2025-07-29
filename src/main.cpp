@@ -3,21 +3,48 @@
 #include "Utils/Logger/Logger.h"
 
 #include <glad/glad.h>
-#include <GLFW/glfw3.h> // Necesario para funciones de GLFW si las usas aquí
+#include <GLFW/glfw3.h> // Necesario para funciones de GLFW si las usas aqui
 
 class GameApplication : public Horus::Application
 {
 public:
-    // Variables para el triángulo de prueba
+    // Variables para el triangulo de prueba
     unsigned int m_VBO;
     unsigned int m_VAO;
     unsigned int m_shaderProgram;
 
     GameApplication()
     {
-        HE_INFO("GameApplication: ¡Horus Engine está listo para tu juego!");
+        HE_INFO("GameApplication: Horus Engine esta listo para tu juego!");
 
-        // --- Configuración para dibujar un triángulo ---
+        m_VBO = 0;
+        m_VAO = 0;
+        m_shaderProgram = 0;
+
+    }
+
+    ~GameApplication()
+    {
+
+        HE_INFO("GameApplication: Tu juego se esta cerrando.");
+        glDeleteVertexArrays(1, &m_VAO);
+        glDeleteBuffers(1, &m_VBO);
+        glDeleteProgram(m_shaderProgram);
+
+    }
+
+    bool Initialize() override
+    {
+        // Llama a la inicialización de la clase base primero para asegurar que GLFW/GLAD estén listos.
+        if (!Horus::Application::Initialize()) // Asumo que este método inicializa GLFW y GLAD
+        {
+            HE_ERROR("GameApplication: Fallo la inicializacion base de la aplicacion.");
+            return false;
+        }
+
+        HE_INFO("GameApplication: Inicializando recursos de OpenGL para el triangulo.");
+
+        // --- Configuracion para dibujar un triangulo ---
         float vertices[] = {
             // Posiciones        // Colores (RGB)
             -0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,
@@ -69,6 +96,7 @@ public:
         if (!success) {
             glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
             HE_ERROR("GameApplication: ERROR::SHADER::VERTEX::COMPILATION_FAILED\n{0}", infoLog);
+            return false; // Retorna false si falla la compilación
         }
 
         unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
@@ -78,6 +106,7 @@ public:
         if (!success) {
             glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
             HE_ERROR("GameApplication: ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n{0}", infoLog);
+            return false; // Retorna false si falla la compilación
         }
 
         m_shaderProgram = glCreateProgram();
@@ -88,6 +117,7 @@ public:
         if (!success) {
             glGetProgramInfoLog(m_shaderProgram, 512, NULL, infoLog);
             HE_ERROR("GameApplication: ERROR::SHADER::PROGRAM::LINKING_FAILED\n{0}", infoLog);
+            return false; // Retorna false si falla el enlace
         }
 
         glDeleteShader(vertexShader);
@@ -95,33 +125,29 @@ public:
 
         glBindBuffer(GL_ARRAY_BUFFER, 0);
         glBindVertexArray(0);
-    }
 
-    ~GameApplication()
-    {
-        HE_INFO("GameApplication: Tu juego se está cerrando.");
-        glDeleteVertexArrays(1, &m_VAO);
-        glDeleteBuffers(1, &m_VBO);
-        glDeleteProgram(m_shaderProgram);
+        return true;
     }
 
     void Update(float deltaTime) override
     {
-        // Tu lógica de actualización de juego
+		Application::Update(deltaTime);
+        // Tu logica de actualizacion de juego
     }
 
     void Render() override
     {
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f); // Puedes mover esto al Application::Initialize() si es un estado global
-        glClear(GL_COLOR_BUFFER_BIT); // También puedes mover esto al Application::Render()
+		Application::Render();
+
         glUseProgram(m_shaderProgram);
         glBindVertexArray(m_VAO);
         glDrawArrays(GL_TRIANGLES, 0, 3);
         glBindVertexArray(0);
+        
     }
 };
 
-// Esta función es llamada por el motor para obtener una instancia de la aplicación del juego
+// Esta funcion es llamada por el motor para obtener una instancia de la aplicacion del juego 
 Horus::Application* Horus::CreateHorusApplication()
 {
     return new GameApplication();

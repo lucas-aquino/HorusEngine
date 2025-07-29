@@ -10,4 +10,6 @@ target_include_directories(Horus_Utils_Logger PUBLIC
     $<INSTALL_INTERFACE:include/Utils/Logger>
 )
 
+target_compile_definitions(Horus_Utils_Logger PUBLIC SPDLOG_DLL)
+
 target_link_libraries(Horus_Utils_Logger PUBLIC spdlog::spdlog)

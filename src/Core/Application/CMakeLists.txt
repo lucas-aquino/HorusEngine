@@ -11,6 +11,9 @@ target_include_directories(Horus_Core_Application PUBLIC
     $<INSTALL_INTERFACE:include/Core/Application>
 )
 
+target_compile_definitions(Horus_Core_Application PUBLIC SPDLOG_DLL)
+target_link_libraries(Horus_Core_Application PRIVATE spdlog::spdlog)
+
 target_link_libraries(Horus_Core_Application PUBLIC
     glfw
     glad::glad

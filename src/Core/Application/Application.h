@@ -1,45 +1,43 @@
 #pragma once
-
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-
-#include "../../Utils/Logger/Logger.h"
 
 namespace Horus
 {
 
-	class Application
-	{
+    class Application
+    {
+    private:
 
-	public:
-		Application();
-		virtual ~Application();
+        bool m_Running;
+        GLFWwindow* m_Window;
 
-		virtual bool Initialize();
+        float m_LastFrameTime; // Tiempo del ultimo frame para calcular el deltaTime
 
-		virtual void Run();
-
-		virtual void Shutdown();
-
-		bool IsRunning() const { return m_Running; }
-
-		GLFWwindow* GetWindow() const { return m_Window; }
-
-		virtual void Update(float deltaTime);
-
-		virtual void Render();
+        static void GLFWErrorCallback(int error, const char* description);
+        static void GLFWWindowCloseCallback(GLFWwindow* window);
 
 
-	private:
+    public:
+        Application();
+        virtual ~Application();
 
-		bool m_Running;
-		GLFWwindow* m_Window;
+        virtual bool Initialize();
 
-		float m_LastFrameTime; // Tiempo del ultimo frame para calcular el deltaTime
+        virtual void Run();
 
-		static void GLFWErrorCallback(int error, const char* description);
-		static void GLFWWindowCloseCallback(GLFWwindow* window);
+        virtual void Shutdown();
 
-	};
+        bool IsRunning() const { return m_Running; }
+
+        GLFWwindow* GetWindow() const { return m_Window; }
+
+        virtual void Update(float deltaTime);
+
+        virtual void Render();
+
+    };
+
+    
 
 }
