@@ -32,6 +32,7 @@ target_include_directories(Horus PRIVATE
 target_link_libraries(Horus PRIVATE
     Horus_Core_Application
     Horus_Utils_Logger
+    Horus_Graphics_Shader
 )
 
 target_compile_definitions(Horus PRIVATE GLFW_DLL)
